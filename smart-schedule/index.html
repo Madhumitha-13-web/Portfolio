@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Schedule | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts aligned with your existing design portfolio theme -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="schedule-wrapper">
+        <!-- Section Heading Framework -->
+        <header class="schedule-header">
+            <span class="section-number">// CORE TIME ARCHITECTURE</span>
+            <h2>Smart <span>Schedule</span></h2>
+            <p>Optimize your day using automated time-blocking and dynamic status tracking.</p>
+        </header>
+
+        <!-- Metrics Dashboard -->
+        <div class="metrics-bar">
+            <div class="metric-item">
+                <span class="metric-label">Total Blocks</span>
+                <span id="totalBlocksCount" class="metric-value">0</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Completed</span>
+                <span id="completedCount" class="metric-value">0</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Day Progress</span>
+                <div class="progress-container">
+                    <div id="scheduleProgress" class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="schedule-grid">
+            <!-- Sidebar Form Controls -->
+            <div class="schedule-controls">
+                <form id="scheduleForm" class="control-card">
+                    <div class="input-group">
+                        <label for="taskName">Task / Event Title</label>
+                        <input type="text" id="taskName" placeholder="e.g., Core Java Logic Practice" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="startTime">Start Time</label>
+                            <input type="time" id="startTime" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="endTime">End Time</label>
+                            <input type="time" id="endTime" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="taskCategory">Category Matrix</label>
+                        <select id="taskCategory" required>
+                            <option value="Academics">🎓 Academics / BCA</option>
+                            <option value="Development">💻 Coding & Dev</option>
+                            <option value="Personal">🌿 Routine / Personal</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="schedule-submit-btn">Add To Schedule</button>
+                </form>
+            </div>
+
+            <!-- Dynamic Time Blocks Display -->
+            <div class="schedule-timeline">
+                <div id="timelineContainer" class="timeline-container">
+                    <!-- Dynamic cards inject here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+/* ==========================================================================
+   🎨 PREMIUM CYBERPUNK SLATE DARK THEME - SMART SCHEDULE EXTENSION
+   ========================================================================== */
+
+/* Theme Variables mapped specifically for a high-end UI contrast */
+:root {
+    --sched-bg: #0a0d12;
+    --sched-surface: #121824;
+    --sched-surface-raised: #1a2336;
+    --sched-border: #263554;
+    --sched-text-main: #f0f4f9;
+    --sched-text-muted: #8ca2c0;
+    
+    /* Neon Accent Vectors */
+    --accent-electric: #00f0ff;
+    --accent-glow-rgb: 0, 240, 255;
+    
+    /* Category Tags Mapping Colors */
+    --color-academics: #ffb800;   /* Vibrant Gold */
+    --color-development: #00f0ff; /* Electric Cyan */
+    --color-personal: #39e57a;    /* Emerald Green */
+    
+    /* State Alert Colors */
+    --state-passed-opacity: 0.4;
+    --state-error: #ff4a6b;
+}
+
+/* Base Body Application Container Settings Override */
+body {
+    background-color: var(--sched-bg);
+    color: var(--sched-text-main);
+    font-family: 'DM Sans', sans-serif;
+    padding: 3rem 1.5rem;
+}
+
+.schedule-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Modern Minimalist Section Header Accentuation */
+.schedule-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--sched-border);
+    padding-bottom: 1.5rem;
+}
+
+.section-number {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--accent-electric);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.schedule-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+}
+
+.schedule-header span {
+    color: var(--accent-electric);
+    text-shadow: 0 0 15px rgba(var(--accent-glow-rgb), 0.4);
+}
+
+.schedule-header p {
+    color: var(--sched-text-muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   📊 METRICS DASHBOARD HUD
+   ========================================================================== */
+.metrics-bar {
+    display: grid;
+    grid-template-columns: 140px 140px 1fr;
+    gap: 2rem;
+    background: linear-gradient(145deg, var(--sched-surface), #0f141f);
+    border: 1px solid var(--sched-border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--sched-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.25rem;
+}
+
+.metric-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-electric);
+    line-height: 1;
+}
+
+/* Micro Progress Bar Gauge Wrapper */
+.progress-container {
+    background-color: var(--sched-bg);
+    border: 1px solid var(--sched-border);
+    height: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    position: relative;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #00b8ff, var(--accent-electric));
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(var(--accent-glow-rgb), 0.6);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   🛠️ WORKSPACE SIDEBAR INPUT CONTROLS CARD
+   ========================================================================== */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 2.5rem;
+}
+
+.control-card {
+    background: var(--sched-surface);
+    border: 1px solid var(--sched-border);
+    border-radius: 16px;
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 100px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: var(--sched-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group input, 
+.input-group select {
+    background-color: var(--sched-bg);
+    border: 1px solid var(--sched-border);
+    color: var(--sched-text-main);
+    padding: 0.9rem 1.1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    outline: none;
+    border-color: var(--accent-electric);
+    box-shadow: 0 0 0 3px rgba(var(--accent-glow-rgb), 0.15);
+    background-color: var(--sched-surface-raised);
+}
+
+/* Time Input Fields Inline Dual Layout Split Row */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Submission Interactive Command Trigger Button */
+.schedule-submit-btn {
+    background: linear-gradient(135deg, #00b8ff, #0066ff);
+    color: #ffffff;
+    border: none;
+    padding: 1.1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+    transition: all 0.25s ease;
+    margin-top: 0.5rem;
+}
+
+.schedule-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 184, 255, 0.5);
+    filter: brightness(1.1);
+}
+
+/* ==========================================================================
+   ⏳ CHRONOLOGICAL DYNAMIC TIMELINE BLOCK MATRIX
+   ========================================================================== */
+.schedule-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Individual Schedule Card Glassmorphic Panels */
+.schedule-card {
+    background: linear-gradient(160deg, rgba(18, 24, 36, 0.8), rgba(15, 20, 31, 0.9));
+    border: 1px solid var(--sched-border);
+    border-left: 6px solid var(--sched-text-muted);
+    border-radius: 12px;
+    padding: 1.5rem 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.schedule-card:hover {
+    transform: translateX(4px);
+    border-color: rgba(var(--accent-glow-rgb), 0.5);
+    background: var(--sched-surface-raised);
+}
+
+/* Category Accent Border Coding Links */
+.schedule-card.cat-Academics { border-left-color: var(--color-academics); }
+.schedule-card.cat-Development { border-left-color: var(--color-development); }
+.schedule-card.cat-Personal { border-left-color: var(--color-personal); }
+
+/* Clock-Driven Live State Modifiers styling metrics */
+.schedule-card.state-passed {
+    opacity: var(--state-passed-opacity);
+    filter: grayscale(40%);
+}
+
+.schedule-card.state-active {
+    border-color: var(--accent-electric);
+    box-shadow: 0 0 20px rgba(var(--accent-glow-rgb), 0.2), inset 0 0 10px rgba(var(--accent-glow-rgb), 0.05);
+    background: linear-gradient(160deg, var(--sched-surface-raised), #1c273d);
+}
+
+/* Checked Task Strike-through Visual State */
+.schedule-card.completed {
+    border-left-color: var(--sched-border) !important;
+    background: rgba(18, 24, 36, 0.4);
+}
+
+.schedule-card.completed h4 {
+    text-decoration: line-through;
+    color: var(--sched-text-muted);
+}
+
+/* Typography elements within card layouts */
+.card-details h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--sched-text-main);
+}
+
+.time-badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: var(--sched-bg);
+    border: 1px solid var(--sched-border);
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    color: var(--accent-electric);
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Micro Neon State Pills */
+.status-pill {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+}
+
+.status-pill.pill-active { 
+    background-color: rgba(0, 240, 255, 0.1); 
+    color: var(--accent-electric);
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
+}
+
+.status-pill.pill-upcoming { 
+    background-color: rgba(140, 162, 192, 0.1); 
+    color: var(--sched-text-muted);
+    border-color: rgba(140, 162, 192, 0.2);
+}
+
+.status-pill.pill-passed { 
+    background-color: rgba(255, 74, 107, 0.1); 
+    color: var(--state-error);
+    border-color: rgba(255, 74, 107, 0.2);
+}
+
+/* Core Functional Control Elements */
+.card-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+/* Custom Styled Checkbox */
+.check-box-action {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: var(--accent-electric);
+    border-radius: 6px;
+}
+
+/* Destructive Actions Button */
+.delete-block-btn {
+    background: none;
+    border: none;
+    color: var(--sched-text-muted);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.3rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.delete-block-btn:hover {
+    color: var(--state-error);
+    background-color: rgba(255, 74, 107, 0.1);
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   📱 RESPONSIVE LAYOUT CONSTRAINTS
+   ========================================================================== */
+@media (max-width: 900px) {
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+    .control-card {
+        position: static;
+    }
+    .metrics-bar {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+    }
+    .metric-item:nth-child(3) {
+        grid-column: span 2;
+    }
+}

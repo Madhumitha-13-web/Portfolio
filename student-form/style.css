@@ -1,0 +1,190 @@
+/* --- EXTENDED UTILITY CSS FOR STUDENT REGISTRATION FORM --- */
+.form-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.form-header {
+    margin-bottom: 3rem;
+}
+
+/* Central Card Layout Panel */
+.form-card {
+    background-color: var(--bg-surface, #161b22);
+    border: 1px solid var(--border-color, #30363d);
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.student-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+/* Two-Column Form Row Layout */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Input Fields Framework wrappers */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: var(--text-secondary, #8a929b);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.input-group input, 
+.input-group select {
+    background-color: var(--bg-primary, #0d0f12);
+    border: 1px solid var(--border-color, #30363d);
+    color: var(--text-primary, #f5f5f7);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition, all 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+    width: 100%;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    outline: none;
+    border-color: var(--accent, #58a6ff);
+    box-shadow: 0 0 0 4px var(--accent-glow, rgba(88, 166, 255, 0.15));
+}
+
+/* Custom Styled Select Dropdown Container */
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper select {
+    appearance: none;
+    cursor: pointer;
+}
+
+/* Radio Choice Matrices */
+.radio-group {
+    display: flex;
+    gap: 2rem;
+    padding: 0.5rem 0;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-primary, #f5f5f7);
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.radio-label input {
+    display: none; /* Hide default radio */
+}
+
+/* Custom Radio Dot Design */
+.custom-radio {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--border-color, #30363d);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    background-color: var(--bg-primary, #0d0f12);
+}
+
+.radio-label input:checked + .custom-radio {
+    border-color: var(--accent, #58a6ff);
+}
+
+.radio-label input:checked + .custom-radio::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent, #58a6ff);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Form Action Buttons */
+.register-submit-btn {
+    background-color: var(--accent, #58a6ff);
+    color: #ffffff;
+    border: none;
+    padding: 1.1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition, all 0.3s ease);
+    margin-top: 1rem;
+}
+
+.register-submit-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Error Typography Adjustments */
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    display: none;
+    font-weight: 500;
+}
+
+/* Dynamic State Classes handles via JS */
+.input-group.invalid input,
+.input-group.invalid select {
+    border-color: #ff6b6b;
+}
+
+.input-group.invalid .error-message {
+    display: block;
+}
+
+/* Success Validation Panel alert */
+.success-banner {
+    display: none;
+    background-color: rgba(46, 164, 79, 0.15);
+    border: 1px solid #2ea44f;
+    color: #2ea44f;
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Structural Scales */
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+    .form-card {
+        padding: 1.5rem;
+    }
+}
